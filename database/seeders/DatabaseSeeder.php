@@ -13,6 +13,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        //10 adalah jumalh yg bisa km buat
+        \App\Models\User::factory(10)->create();
     }
 }

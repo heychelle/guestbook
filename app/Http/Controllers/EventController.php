@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class EventController extends Controller
 {
@@ -30,7 +31,10 @@ class EventController extends Controller
     {
         //display add/create form
 
-        return view('event.addEvent');
+        // return view('event.addEvent');
+        $pages = 'event';
+        $users = User::all();
+        return view('event.addEvent', compact('pages','users'));
     }
 
     /**
