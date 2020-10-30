@@ -29,7 +29,13 @@
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <a class="nav-item nav-link" href="/event">Event</a>
+
+                @auth()
+                @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
                 <a class="nav-item nav-link" href="/user">User</a>
+                @endif
+                @endauth
+
                 <a class="nav-item nav-link" href="/student">Student</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -50,11 +56,13 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
                             @endif
+
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
