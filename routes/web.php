@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\Auth\ActivationController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserController;
+use App\Listeners\ActivationListener;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,9 +38,11 @@ Route::get('/',function(){
     return redirect()->route('event.index');
 });
 
+
+Route::get('activate',[ActivationController::class, 'activate'])->name('activate');
+
 Route::resource('event', EventController::class);
 Route::resource('user', UserController::class);
-
 // Route::get('/', [StudentController::class, 'index'])->name('index');
 // Route::get('student/{student}',[StudentController::class, 'edit'])->name('student.edit');
 // Route::patch('update/{student}',[StudentController::class, 'update'])->name('student.update');

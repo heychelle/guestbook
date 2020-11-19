@@ -165,7 +165,7 @@ return [
         /*
          * Package Service Providers...
          */
-        Barryvdh\Debugbar\ServiceProvider::class,
+        // Barryvdh\Debugbar\ServiceProvider::class,
 
 
         /*
@@ -230,7 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
 
-        'Debugbar' => Barryvdh\Debugbar\Facade::class,
+        // 'Debugbar' => Barryvdh\Debugbar\Facade::class,
 
     ],
 
