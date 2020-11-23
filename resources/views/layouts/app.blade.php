@@ -28,11 +28,10 @@
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <a class="nav-item nav-link" href="/event">Event</a>
-
-                @auth()
+                <a class="nav-item nav-link" href="{{route('event.index')}}">Event</a>
+                @auth
                 @if(\Illuminate\Support\Facades\Auth::user()->isAdmin())
-                <a class="nav-item nav-link" href="/user">User</a>
+                <a class="nav-item nav-link" href="{{route('admin.user.index')}}">User List</a>
                 @endif
                 @endauth
 

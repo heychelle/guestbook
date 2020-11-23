@@ -7,11 +7,11 @@
         <div class="row">
             @auth
                 <div class="col-md-2 offset-md-8">
-                <a href="{{ route('event.create') }}" class="btn btn-primary btn-block" role="button"
+                <a href="{{ route('admin.event.create') }}" class="btn btn-primary btn-block" role="button"
                     aria-pressed="true">Tambah</a>
             </div>
             @endauth
-            
+
         </div>
         <div class="row">
             <div class="col">
@@ -30,7 +30,7 @@
                     <tbody>
                         @foreach ($events as $event)
                             <tr>
-                                <td><a href="@auth{{ route('event.edit', $event) }}@endauth">{{ $event->title }} </a></td>
+                                <td><a href="@auth{{ route('admin.event.edit', $event) }}@endauth">{{ $event->title }} </a></td>
                                 <td>{{ $event->description }}</td>
                                 <td>{{ $event->status }}</td>
                                 {{-- name bisa diganti email --}}
@@ -39,7 +39,7 @@
                                 <td>{{ $event->created_at }}</td>
                                 @auth
                                     <td>
-                                    <form action="{{ route('event.destroy', $event) }}" method="post">
+                                    <form action="{{ route('admin.event.destroy', $event) }}" method="post">
                                         @csrf
                                         <input type="hidden" name="_method" value="DELETE">
                                         <button type="submit" class="btn btn-danger">Delete</button>
